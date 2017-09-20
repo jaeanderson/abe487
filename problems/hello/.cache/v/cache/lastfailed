@@ -1,0 +1,7 @@
+{
+  "test.py::test_hello_arg": true,
+  "test.py::test_hello_arg2": true,
+  "test.py::test_hello_arg2_usage": true,
+  "test.py::test_hello_arg_usage": true,
+  "test.py::test_hello_out": true
+}
