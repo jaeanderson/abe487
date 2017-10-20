@@ -27,7 +27,7 @@ sequence = sys.argv[1].upper()		#converts input argument to upper case and assig
 kmer_length = 3				#initialize length of kmers to length of 3
 
 
-protein_translate = ''				#initialize string variable for codon to protein translation
+protein_translate = ''			#initialize string variable for codon to protein translation
 
 #iterates sequence for given kmer_length and translate kmer matches to protein value  
 for i in range(0, len(sequence), kmer_length):
