@@ -25,7 +25,7 @@ def main():
     #finds minimum length between two strings
     min_len = min(len(s1), len(s2))
     
-    #determines length difference between two unequal strings
+    #determines difference between two unequal strings
     if len(s1) != len(s2):
         max_len = max(len(s1), len(s2))
         diff = max_len - min_len
