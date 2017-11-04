@@ -25,13 +25,13 @@ def main():
     #finds minimum length between two strings
     min_len = min(len(s1), len(s2))
     
-    #determines length difference between two strings
+    #determines length difference between two unequal strings
     if len(s1) != len(s2):
         max_len = max(len(s1), len(s2))
         diff = max_len - min_len
 
-    #counts number of differing characters in minimum length string
     #assuming two strings are of equal length
+    #counts number of differing characters up to minimum length string
     for char in range(0, min_len):
         if s1[char] is not s2[char]:
             ham_ctr +=1
