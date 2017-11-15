@@ -20,8 +20,7 @@ def get_args():
 def output_parse(r):
     """print dictionary row with tabs"""
 
-    print('\t'.join([r.get(x) for x in ['qseqid','sseqid','pident','evalue']]).rstrip())
-
+    print('\t'.join([r.get(x) for x in ['qseqid','sseqid','pident','evalue']]))
 
 # --------------------------------------------------
 def main():
@@ -40,12 +39,12 @@ def main():
             row = dict(zip(headers, line))
 
             if pid_val != 0.0 or e_val is not None:
-                if e_val is None and float(row['pident']) > pid_val:
+                if e_val is None and float(row['pident']) >= pid_val:
                     output_parse(row)
                 else:
-                    if pid_val == 0.0 and float(row['evalue']) < e_val:
+                    if pid_val == 0.0 and float(row['evalue']) <= e_val:
                         output_parse(row)
-                    elif float(row['pident']) > pid_val and float(row['evalue']) < e_val:
+                    elif float(row['pident']) >= pid_val and float(row['evalue']) <= e_val:
                         output_parse(row)
             else:
                 output_parse(row)
