@@ -26,18 +26,24 @@ def output_parse(r):
 def main():
     """main"""
 
+    #input arguments
     args = get_args()
     pid_val = args.pct_id
     e_val = args.evalue
     blast_file = args.positional
-    
+
+    #blastn outfmt-6 headers    
     headers = 'qseqid sseqid pident length mismtch gapopen qstrt qend sstrt send evalue bitscore'.split()
 
+    #opens and reads tab delimited input file
     with open(blast_file, 'r') as bfile:
         reader = csv.reader(bfile, delimiter='\t')
-        for i, line in enumerate(reader):
+
+        #creates dictionary for each row in file with headers
+        for line in reader:
             row = dict(zip(headers, line))
 
+            #parses dictionary according to input arguments
             if pid_val != 0.0 or e_val is not None:
                 if e_val is None and float(row['pident']) >= pid_val:
                     output_parse(row)
@@ -49,6 +55,7 @@ def main():
             else:
                 output_parse(row)
 
+    #closes input file
     bfile.close()
     
 
